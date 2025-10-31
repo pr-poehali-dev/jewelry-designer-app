@@ -13,19 +13,58 @@ interface Charm {
   id: string;
   style: CharmStyle;
   icon: string;
+  image?: string;
 }
 
 const categories = [
-  { id: 'earrings' as const, name: 'Серьги', icon: 'Sparkles' },
-  { id: 'bracelet' as const, name: 'Браслет', icon: 'Circle' },
-  { id: 'necklace' as const, name: 'Колье', icon: 'Gem' },
-  { id: 'choker' as const, name: 'Чокер', icon: 'Star' }
+  { 
+    id: 'earrings' as const, 
+    name: 'Серьги', 
+    icon: 'Sparkles',
+    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&q=80'
+  },
+  { 
+    id: 'bracelet' as const, 
+    name: 'Браслет', 
+    icon: 'Circle',
+    image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=80'
+  },
+  { 
+    id: 'necklace' as const, 
+    name: 'Колье', 
+    icon: 'Gem',
+    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=80'
+  },
+  { 
+    id: 'choker' as const, 
+    name: 'Чокер', 
+    icon: 'Star',
+    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80'
+  }
 ];
 
 const bases = [
-  { id: 'hook' as const, name: 'Крючок', price: 1200, icon: 'Anchor' },
-  { id: 'hoop' as const, name: 'Кольцо-конго', price: 1500, icon: 'CircleDot' },
-  { id: 'stud' as const, name: 'Гвоздик', price: 1000, icon: 'Disc' }
+  { 
+    id: 'hook' as const, 
+    name: 'Крючок', 
+    price: 1200, 
+    icon: 'Anchor',
+    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=300&q=80'
+  },
+  { 
+    id: 'hoop' as const, 
+    name: 'Кольцо-конго', 
+    price: 1500, 
+    icon: 'CircleDot',
+    image: 'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=300&q=80'
+  },
+  { 
+    id: 'stud' as const, 
+    name: 'Гвоздик', 
+    price: 1000, 
+    icon: 'Disc',
+    image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?w=300&q=80'
+  }
 ];
 
 const colors = [
@@ -36,15 +75,15 @@ const colors = [
 ];
 
 const charms: Charm[] = [
-  { id: '1', style: 'geometric', icon: 'Triangle' },
-  { id: '2', style: 'geometric', icon: 'Square' },
-  { id: '3', style: 'geometric', icon: 'Circle' },
-  { id: '4', style: 'sea', icon: 'Waves' },
-  { id: '5', style: 'sea', icon: 'Shell' },
-  { id: '6', style: 'pearl', icon: 'CircleDot' },
-  { id: '7', style: 'pearl', icon: 'Sparkles' },
-  { id: '8', style: 'minimal', icon: 'Minus' },
-  { id: '9', style: 'minimal', icon: 'Plus' }
+  { id: '1', style: 'geometric', icon: 'Triangle', image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343a?w=200&q=80' },
+  { id: '2', style: 'geometric', icon: 'Square', image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=200&q=80' },
+  { id: '3', style: 'geometric', icon: 'Circle', image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=200&q=80' },
+  { id: '4', style: 'sea', icon: 'Waves', image: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=200&q=80' },
+  { id: '5', style: 'sea', icon: 'Shell', image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&q=80' },
+  { id: '6', style: 'pearl', icon: 'CircleDot', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&q=80' },
+  { id: '7', style: 'pearl', icon: 'Sparkles', image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=200&q=80' },
+  { id: '8', style: 'minimal', icon: 'Minus', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&q=80' },
+  { id: '9', style: 'minimal', icon: 'Plus', image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=200&q=80' }
 ];
 
 const Index = () => {
@@ -123,14 +162,18 @@ const Index = () => {
               {categories.map((category) => (
                 <Card
                   key={category.id}
-                  className="p-6 hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 bg-card border-border"
+                  className="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 bg-card border-border"
                   onClick={() => handleCategorySelect(category.id)}
                 >
                   <div className="flex flex-col items-center gap-3">
-                    <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center">
-                      <Icon name={category.icon} size={32} className="text-foreground" />
+                    <div className="w-full h-32 overflow-hidden bg-secondary">
+                      <img 
+                        src={category.image} 
+                        alt={category.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                    <p className="font-medium text-foreground">{category.name}</p>
+                    <p className="font-medium text-foreground pb-4">{category.name}</p>
                   </div>
                 </Card>
               ))}
@@ -166,15 +209,19 @@ const Index = () => {
               {bases.map((base) => (
                 <Card
                   key={base.id}
-                  className={`p-6 cursor-pointer transition-all duration-300 hover:shadow-lg ${
+                  className={`cursor-pointer transition-all duration-300 hover:shadow-lg overflow-hidden ${
                     baseType === base.id ? 'border-2 border-foreground bg-accent' : 'border-border bg-card'
                   }`}
                   onClick={() => handleBaseSelect(base.id)}
                 >
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between p-4">
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center">
-                        <Icon name={base.icon} size={28} className="text-foreground" />
+                      <div className="w-20 h-20 rounded-xl overflow-hidden bg-secondary flex-shrink-0">
+                        <img 
+                          src={base.image} 
+                          alt={base.name}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                       <div>
                         <p className="font-semibold text-foreground text-lg">{base.name}</p>
@@ -208,13 +255,17 @@ const Index = () => {
 
             <div className="mb-12 flex justify-center">
               <div 
-                className="w-48 h-48 rounded-3xl shadow-2xl flex items-center justify-center transition-all duration-300"
-                style={{ backgroundColor: getColorHex() }}
+                className="w-48 h-48 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 relative"
               >
-                <Icon 
-                  name={bases.find(b => b.id === baseType)?.icon || 'Sparkles'} 
-                  size={80} 
-                  className="text-white opacity-80"
+                <img 
+                  src={bases.find(b => b.id === baseType)?.image} 
+                  alt="Preview"
+                  className="w-full h-full object-cover"
+                  style={{ filter: `hue-rotate(${colorType === 'rose-gold' ? '20deg' : colorType === 'graphite' ? '180deg' : '0deg'}) brightness(${colorType === 'silver' ? '1.1' : '1'})` }}
+                />
+                <div 
+                  className="absolute inset-0 mix-blend-overlay opacity-40"
+                  style={{ backgroundColor: getColorHex() }}
                 />
               </div>
             </div>
@@ -272,10 +323,14 @@ const Index = () => {
                 selectedCharms.map((charm) => (
                   <div
                     key={charm.id}
-                    className="w-12 h-12 rounded-xl flex items-center justify-center transition-all hover:scale-110"
-                    style={{ backgroundColor: getColorHex() }}
+                    className="w-14 h-14 rounded-xl overflow-hidden transition-all hover:scale-110 border-2"
+                    style={{ borderColor: getColorHex() }}
                   >
-                    <Icon name={charm.icon} size={24} className="text-white" />
+                    <img 
+                      src={charm.image} 
+                      alt="charm"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 ))
               )}
@@ -301,14 +356,18 @@ const Index = () => {
                   return (
                     <button
                       key={charm.id}
-                      className={`aspect-square rounded-xl border-2 flex items-center justify-center transition-all hover:scale-110 ${
+                      className={`aspect-square rounded-xl border-2 overflow-hidden transition-all hover:scale-110 ${
                         isSelected
-                          ? 'border-foreground bg-accent'
-                          : 'border-border bg-card'
+                          ? 'border-foreground ring-2 ring-foreground'
+                          : 'border-border'
                       }`}
                       onClick={() => handleCharmToggle(charm)}
                     >
-                      <Icon name={charm.icon} size={20} className="text-foreground" />
+                      <img 
+                        src={charm.image} 
+                        alt="charm"
+                        className="w-full h-full object-cover"
+                      />
                     </button>
                   );
                 })}
@@ -332,25 +391,31 @@ const Index = () => {
 
             <Card className="p-8 mb-8 bg-card border-border">
               <div className="flex justify-center mb-8">
-                <div
-                  className="w-64 h-64 rounded-3xl shadow-2xl flex items-center justify-center relative"
-                  style={{ backgroundColor: getColorHex() }}
-                >
-                  <Icon
-                    name={bases.find(b => b.id === baseType)?.icon || 'Sparkles'}
-                    size={100}
-                    className="text-white opacity-80"
+                <div className="w-64 h-64 rounded-3xl shadow-2xl overflow-hidden relative">
+                  <img 
+                    src={bases.find(b => b.id === baseType)?.image} 
+                    alt="Jewelry preview"
+                    className="w-full h-full object-cover"
+                    style={{ filter: `hue-rotate(${colorType === 'rose-gold' ? '20deg' : colorType === 'graphite' ? '180deg' : '0deg'}) brightness(${colorType === 'silver' ? '1.1' : '1'})` }}
+                  />
+                  <div 
+                    className="absolute inset-0 mix-blend-overlay opacity-30"
+                    style={{ backgroundColor: getColorHex() }}
                   />
                   <div className="absolute inset-0 flex flex-wrap gap-2 items-center justify-center p-6">
                     {selectedCharms.map((charm, idx) => (
                       <div
                         key={charm.id}
-                        className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center"
+                        className="w-12 h-12 rounded-lg overflow-hidden border-2 border-white shadow-lg"
                         style={{
                           transform: `rotate(${idx * 15}deg)`,
                         }}
                       >
-                        <Icon name={charm.icon} size={20} className="text-white" />
+                        <img 
+                          src={charm.image} 
+                          alt="charm"
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     ))}
                   </div>
