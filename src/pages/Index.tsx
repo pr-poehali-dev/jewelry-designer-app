@@ -51,36 +51,36 @@ const categories = [
 
 const hooks = [
   { 
-    id: 'triangle' as const, 
-    name: 'Треугольник', 
+    id: 'circle' as const, 
+    name: 'Конго круглые 18мм', 
     diameter: '18мм',
     price: 1200,
-    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=300&q=80',
-    description: 'Швенза треугольной формы'
+    image: 'https://cdn.poehali.dev/files/c3bba168-cc37-46be-8762-f5cc520156d9.jpeg',
+    description: 'Классические круглые швензы-конго с застёжкой'
   },
   { 
     id: 'square' as const, 
-    name: 'Квадрат', 
+    name: 'Конго квадратные 18мм', 
     diameter: '18мм',
     price: 1200,
-    image: 'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=300&q=80',
-    description: 'Швенза квадратной формы'
+    image: 'https://cdn.poehali.dev/files/c3bba168-cc37-46be-8762-f5cc520156d9.jpeg',
+    description: 'Квадратные швензы-конго с застёжкой'
   },
   { 
-    id: 'circle' as const, 
-    name: 'Круг', 
+    id: 'triangle' as const, 
+    name: 'Конго треугольные 18мм', 
     diameter: '18мм',
     price: 1200,
-    image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?w=300&q=80',
-    description: 'Швенза круглой формы'
+    image: 'https://cdn.poehali.dev/files/c3bba168-cc37-46be-8762-f5cc520156d9.jpeg',
+    description: 'Треугольные швензы-конго с застёжкой'
   },
   { 
     id: 'spiral' as const, 
-    name: 'Спираль', 
+    name: 'Конго спиральные 18мм', 
     diameter: '18мм',
     price: 1500,
-    image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=300&q=80',
-    description: 'Швенза спиральной формы'
+    image: 'https://cdn.poehali.dev/files/c3bba168-cc37-46be-8762-f5cc520156d9.jpeg',
+    description: 'Спиральные швензы-конго с застёжкой'
   }
 ];
 
